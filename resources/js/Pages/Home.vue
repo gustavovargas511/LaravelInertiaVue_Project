@@ -13,9 +13,8 @@
         <p class="text-slate-600">Welcome to the Home page</p>
     </div>
     <div class="w-3/4 mx-auto">
-        <p>This is a basic project with login functionality,
-            using Laravel, Inertia and Vue 3, made to show
-        what our team can offer to you.</p>
+        <p>Project to manage Tasks by user (login functionality),
+            using Laravel, Inertia and Vue 3.</p>
         <p>Feel free to test it <div class="text-slate-600">(..or break it)</div></p>
     </div>
 

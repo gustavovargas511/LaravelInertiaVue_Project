@@ -40,6 +40,11 @@ const user = computed(() => page.props.auth.user); // Access user from Inertia s
                 class="flex flex-col md:flex-row justify-center items-center text-2xl font-bold space-x-6"
             >
                 <Link
+                    :href="route('tasks.create')"
+                    class="text-white hover:text-violet-500"
+                    :class="{ 'text-violet-500': route().current('tasks.create') }"
+                    >Create Task</Link>
+                <Link
                     :href="route('dashboard')"
                     class="text-white hover:text-violet-500"
                     :class="{ 'text-violet-500': route().current('dashboard') }"
