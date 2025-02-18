@@ -9,6 +9,7 @@ const form = useForm({
     email: null,
     password: null,
     password_confirmation: null,
+    avatar: null,
 });
 
 // const submitForm = () => {
@@ -16,6 +17,10 @@ const form = useForm({
 //     router.post('/register', form);
 // };
 
+const change = (e) => {
+    form.avatar = e.target.files[0];
+    // console.log(e.target.files[0]);
+};
 
 
 </script>
@@ -34,6 +39,15 @@ const form = useForm({
             },
         })"> <!-- @submit.prevent="submitForm" -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                <div>
+                    <label for="avatar">Avatar</label>
+                    <input type="file" 
+                           id="avatar" 
+                           name="avatar" 
+                           class="w-full p-2 border border-gray-400 rounded-xl"
+                           @input="change" />
+                    <p class="text-red-500 pt-2">{{ form.errors.avatar}}</p>
+                </div>
                 <TextInput name="Name" v-model="form.name" :message="form.errors.name"/>
                 <TextInput name="Email" type="email" v-model="form.email" :message="form.errors.email"/>
                 <TextInput name="Password" type="password" v-model="form.password" :message="form.errors.password"/>
