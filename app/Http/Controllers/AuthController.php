@@ -20,11 +20,13 @@ class AuthController extends Controller
             'name' => ['required','string','max:255'],
             'email' => ['required','email','unique:users,email'],
             'password' => ['required','string','min:6','confirmed'],
-            'avatar' => ['nullable','image','max:1024'],
+            'avatar' => ['nullable', 'image', 'mimes:jpg,jpeg,png', 'max:2048'], // Max size: 2MB
         ]);
         
         if ($request->hasFile('avatar')) {
             $filePath = $request->file('avatar')->store('avatars', 'public');
+        } else {
+            $filePath = null;
         }
         
         // dd($filePath);

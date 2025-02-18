@@ -57,7 +57,7 @@ const user = computed(() => page.props.auth.user); // Access user from Inertia s
                         :src="
                             user?.avatar
                                 ? `/storage/${user.avatar}`
-                                : '/images/default-avatar.png'
+                                : '/images/user-solid.svg'
                         "
                         alt="User Avatar"
                         class="w-10 h-10 rounded-full"
