@@ -37,17 +37,8 @@ const user = computed(() => page.props.auth.user); // Access user from Inertia s
             </div> -->
             <div
                 v-if="user"
-                class="flex flex-col md:flex-row text-2xl font-bold space-x-6"
+                class="flex flex-col md:flex-row justify-center items-center text-2xl font-bold space-x-6"
             >
-                <div>
-                    <img :src="user?.avatar
-                                ? `/storage/${user.avatar}`
-                                : '/images/default-avatar.png'
-                              "
-                        alt="User Avatar"
-                        class="w-10 h-10 rounded-full"
-                    />
-                </div>
                 <Link
                     :href="route('dashboard')"
                     class="text-white hover:text-violet-500"
@@ -61,6 +52,17 @@ const user = computed(() => page.props.auth.user); // Access user from Inertia s
                     class="text-white hover:text-violet-500"
                     >Logout</Link
                 >
+                <div>
+                    <img
+                        :src="
+                            user?.avatar
+                                ? `/storage/${user.avatar}`
+                                : '/images/default-avatar.png'
+                        "
+                        alt="User Avatar"
+                        class="w-10 h-10 rounded-full"
+                    />
+                </div>
             </div>
             <div
                 v-else
