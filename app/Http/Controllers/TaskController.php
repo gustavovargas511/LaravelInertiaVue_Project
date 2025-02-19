@@ -13,7 +13,7 @@ class TaskController extends Controller
     public function index()
     {
         //
-        $tasks = Task::orderBy('created_at', 'desc')->get();
+        $tasks = Task::orderBy('created_at', 'desc')->paginate(6);
         return inertia('Dashboard', [
             'tasks' => $tasks
         ]);
