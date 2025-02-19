@@ -21,7 +21,7 @@ const deleteTask = (taskId) => {
 
 const updateStatus = (taskId, status) => {
     // console.log(taskId, status);
-    const form = useForm({ status }); // Initialize the form with the status...
+    const form = useForm({ status }); // Initialize the form with the status..
     form.put(route('tasks-update-status', taskId), {
         status,
     });
