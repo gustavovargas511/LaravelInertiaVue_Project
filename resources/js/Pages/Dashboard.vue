@@ -18,6 +18,14 @@ const deleteTask = (taskId) => {
         },
     });
 };
+
+const updateStatus = (taskId, status) => {
+    // console.log(taskId, status);
+    const form = useForm({ status }); // ✅ Initialize the form with the status
+    form.put(route('tasks-update-status', taskId), {
+        status,
+    });
+};
 </script>
 
 <template>
@@ -43,7 +51,16 @@ const deleteTask = (taskId) => {
                             <td class="px-4 py-2 whitespace-nowrap text-gray-700"> 
                                 {{ dayjs(task.created_at).format('MMMM D, YYYY [at] h:mm A') }}
                             </td>
-                            <td class="px-4 py-2 whitespace-nowrap text-gray-700">{{ task.status }}</td>
+                            <td class="px-4 py-2 whitespace-nowrap text-gray-700"><select
+                                v-model="task.status"
+                                @change="updateStatus(task.id, $event.target.value)"
+                                class="border rounded px-2 py-1"
+                            >
+                                <option value="pending">Pending</option>
+                                <option value="in_process">In Process</option>
+                                <option value="completed">Completed</option>
+                            </select>
+                            </td>
                             <td class="px-4 py-2 whitespace-nowrap text-gray-700 space-x-2">
                             <Link
                                 :href="route('tasks-edit', task.id)"

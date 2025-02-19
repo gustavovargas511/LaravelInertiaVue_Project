@@ -75,6 +75,7 @@ class TaskController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        // dd($request->all());
         //
         $data = $request->validate([
             'title' => 'required',
@@ -84,6 +85,26 @@ class TaskController extends Controller
         $task = Task::where('id', $id)->where('user_id', auth()->id())->firstOrFail();
 
         $task->update($data);
+
+        return redirect()->route('dashboard');
+    }
+
+    /**
+     * Update the status of the specified resource in storage.
+     */
+
+    public function updateStatus(Request $request, string $id){
+        // dd($id);
+        // dd($request->all());
+
+        $request->validate([
+            'status' => 'required|string|in:pending,in_process,completed'
+        ]);
+
+
+        $task = Task::where('id', $id)->where('user_id', auth()->id())->firstOrFail();
+        // dd($task);
+        $task->update(['status' => $request->status]);
 
         return redirect()->route('dashboard');
     }
