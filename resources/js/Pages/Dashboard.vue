@@ -7,7 +7,8 @@ import dayjs from 'dayjs';
 // Get the page props
 const form = useForm();
 const page = usePage();
-const tasks = ref(page.props.tasks); // Use `ref` to make tasks reactive
+const tasks = ref(page.props.tasks.data); // Use `ref` to make tasks reactive
+const pagination = ref(page.props.tasks); // Store full pagination info
 const user = computed(() => page.props.auth.user); // Access user from Inertia shared data
 
 
@@ -81,6 +82,19 @@ const updateStatus = (taskId, status) => {
         </div>
         <div v-else>
             <p>No tasks found.</p>
+        </div>
+        <!-- Pagination -->
+        <div class="flex flex-row justify-center items-center">
+            <Link v-for="link in pagination.links" 
+                 :key="link.label" 
+                 :href="link.url"
+                 v-html="link.label"
+                 class="px-4 py-2 border rounded mx-1 hover:bg-gray-200"
+                :class="{
+                        'bg-gray-200': link.active, 
+                        'text-gray-500 cursor-not-allowed': !link.url,
+                        }">
+            </Link>
         </div>
     </div>
 </template>
