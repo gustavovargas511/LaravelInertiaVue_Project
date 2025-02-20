@@ -7,8 +7,10 @@ import dayjs from 'dayjs';
 // Get the page props
 const form = useForm();
 const page = usePage();
-const tasks = ref(page.props.tasks.data); // Use `ref` to make tasks reactive
+const tasks = ref(page.props.tasks.data); // Use `ref` to make tasks reactive, 
+                                         // also this way we get the tasks data from the controller
 const pagination = ref(page.props.tasks); // Store full pagination info
+                                          // This now contains pagination info, and the data into `data` key
 const user = computed(() => page.props.auth.user); // Access user from Inertia shared data
 
 
