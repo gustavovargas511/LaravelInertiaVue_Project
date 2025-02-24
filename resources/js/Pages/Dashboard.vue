@@ -54,14 +54,14 @@ watch(search, (value) => {
 <template>
     <div class="w-3/4 mx-auto grid grid-cols-1 gap-4 justify-center items-center">
         <h1 class="text-3xl text-center">Welcome back {{ user.name }}</h1>
-        <div v-if="tasks.length > 0">
-            <h2 class="text-2xl text-center mb-4">These are your tasks:</h2>
-            <div class="flex flex-row justify-end my-2 p-2"> <!-- Search bar -->
-                    <input class="w-1/4 p-1 border-2 border-gray-200 rounded" 
+          <h2 class="text-2xl text-center mb-4">These are your tasks:</h2>
+            <div class="flex flex-row justify-end p-2"> <!-- Search bar -->
+                    <input class="w-1/4 p-1 border-2 border-gray-200 rounded-lg" 
                            type="search" 
                            placeholder="Search by any word"
                            v-model="search"/>
             </div>
+        <div v-if="tasks.length > 0">
             <div class="overflow-x-auto rounded-lg border border-gray-200">
                 <table class="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
                     <thead class="ltr:text-left rtl:text-right">
