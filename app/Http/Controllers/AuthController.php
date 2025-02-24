@@ -40,7 +40,8 @@ class AuthController extends Controller
 
         auth()->login($user);
 
-        return redirect()->route('home');
+        return redirect()->route('home')
+        ->with('message', 'User created and logged successfully');
     }
 
     public function login(Request $request)
