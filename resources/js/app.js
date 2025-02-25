@@ -21,8 +21,8 @@ createInertiaApp({
         createApp({ render: () => h(App, props) })
             .use(plugin)
             .use(ZiggyVue, Ziggy)
-            .component("Head", Head) // add the Head component
-            .component("Link", Link) // add the Link component
+            .component("Head", Head) // add the Head component so there is no need to import it in every page
+            .component("Link", Link) // add the Link component, same as Head
             .mount(el);
     },
     // progress: {

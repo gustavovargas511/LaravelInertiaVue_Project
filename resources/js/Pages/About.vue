@@ -10,7 +10,7 @@
     <Head :title = "`${$page.component } |`"/>
     <div class="w-3/4 mx-auto">
         <h1 class="text-3xl">About</h1>
-        <p class="text-slate-600">Burma Tech</p>
+        <p class="text-slate-600">Some Company Tech</p>
     </div>
     <div class="w-3/4 mx-auto">
         <p>Software Develoment Company</p>
